@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+//import CSS
+import "./App.css";
+import Test1 from "./components/test1/Test1";
 
+//create a  component
 function App() {
+  //state (data at snapshot)
+  let arr = [
+    {
+      heading: "Heading-1",
+      para: "This is para-1",
+    },
+    {
+      heading: "Heading-2",
+      para: "This is para-2",
+    },
+    {
+      heading: "Heading-3",
+      para: "This is para-3",
+    },
+   
+  ];
+
+  //return react element
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1 className="text-danger bg-warning">Welcome to ReactJS</h1>
+      {/* nest Test1  acomponent */}
+      {
+        arr.map((obj,index)=><Test1 data={obj} key={index} />)
+      }
     </div>
   );
 }
