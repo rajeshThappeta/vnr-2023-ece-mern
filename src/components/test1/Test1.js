@@ -1,15 +1,29 @@
 import "./Test1.css";
+import { useState } from "react";
 
-function Test1(props) { //{ data :{ heading:"Heading-1",para:'This is para-1'}}
- 
+function Test1() {
+  //state
+  let [counter, setCounter] = useState(1);
 
-   
-   
-    return (
-    <div className="bg-secondary my-card text-white p-3 m-2">
-      <h2>{props.data.heading}</h2>
-      <p className="lead">{props.data.para}</p>
-      <button className="btn btn-warning">Click</button>
+  //change state
+  function incrementCounter() {
+    setCounter(counter + 1);
+  }
+
+  function decrementCounter() {
+    setCounter(counter - 1);
+  }
+
+  return (
+    <div className="bg-white my-card text-info p-3 m-2 ">
+      <h1>Counter - {counter}</h1>
+
+      <button className="btn btn-warning text-dark" onClick={incrementCounter}>
+        Increment
+      </button>
+      <button className="btn btn-danger ms-2 text-dark" onClick={decrementCounter}>
+        Decrement
+      </button>
     </div>
   );
 }
