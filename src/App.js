@@ -1,7 +1,8 @@
 //import CSS
 import "./App.css";
 
-import Test1 from "./components/test1/Test1";
+
+import Test2 from "./components/test2/Test2";
 
 //create a  component
 function App() {
@@ -12,8 +13,8 @@ function App() {
 
   //return react element
   return (
-    <div className="main">
-      <Test1 />
+    <div className="main text-center">
+      <Test2 />
     </div>
   );
 }
