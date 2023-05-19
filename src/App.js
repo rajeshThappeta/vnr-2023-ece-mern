@@ -1,9 +1,9 @@
 //import CSS
 import "./App.css";
-import FormDemo1 from "./components/form-demo1/FormDemo1";
+import  ManageTasks from './components/manage-tasks/ManageTasks'
 
 
-import Test2 from "./components/test2/Test2";
+
 
 //create a  component
 function App() {
@@ -11,7 +11,7 @@ function App() {
   //return react element
   return (
     <div className="main">
-      <FormDemo1 />
+     <ManageTasks />
     </div>
   );
 }
