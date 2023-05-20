@@ -1,28 +1,37 @@
-import {useState} from 'react'
-import './AddTask.css'
-import {useForm} from 'react-hook-form'
 
-function AddTask({tasks,setTasks}) {
+import "./AddTask.css";
+import { useForm } from "react-hook-form";
+import { TasksContextObj } from "../../contexts/TasksContext";
+import {useContext} from 'react'
 
- 
-  let {register,handleSubmit}=useForm()
+function AddTask() {
+  let { register, handleSubmit } = useForm();
 
-  function addingNewtask(taskObj){
-    
-    setTasks([...tasks,taskObj.newTask])
+  //access state from TaskContext
+ let [tasks,setTasks]= useContext(TasksContextObj)
+
+  function addingNewtask(taskObj) {
+   setTasks([...tasks,taskObj.newTask])
   }
 
-  console.log(tasks)
+  
 
   return (
     <div>
       <p className="display-6 text-secondary">Add New Task</p>
       <form onSubmit={handleSubmit(addingNewtask)}>
-        <input type="text" {...register("newTask")} id="" className="mb-3 form-control" />
-        <button className="btn btn-success" type="submit">Add</button>
+        <input
+          type="text"
+          {...register("newTask")}
+          id=""
+          className="mb-3 form-control"
+        />
+        <button className="btn btn-success" type="submit">
+          Add
+        </button>
       </form>
     </div>
-  )
+  );
 }
 
-export default AddTask
+export default AddTask;

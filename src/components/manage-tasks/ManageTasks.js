@@ -5,22 +5,19 @@ import TasksList from "../tasks-list/TasksList";
 import TasksCount from "../tasks-count/TasksCount";
 
 function ManageTasks() {
-  //state of AddTask component
-  let [tasks, setTasks] = useState([]);
-
   return (
     <div className="container text-center">
       <p className="display-2 text-center text-info">Tasks Management</p>
       {/* nest 3 components */}
       <div className="row">
         <div className="col-sm-4">
-          <AddTask tasks={tasks} setTasks={setTasks} />
+          <AddTask />
         </div>
         <div className="col-sm-4">
-          <TasksList tasks={tasks} />
+          <TasksList />
         </div>
         <div className="col-sm-4">
-          <TasksCount tasks={tasks} />
+          <TasksCount />
         </div>
       </div>
     </div>
