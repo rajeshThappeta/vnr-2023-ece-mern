@@ -1,24 +1,38 @@
 import React from 'react'
 import './Register.css'
+import {useForm} from 'react-hook-form'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 function Register() {
+
+  let navigate=useNavigate()
+  let {register,handleSubmit,formState:{errors}}=useForm()
+
+  function createUser(userObj){
+    //HTTP POST to save userObj at API
+    axios.post('http://localhost:4000/users',userObj)
+    .then(res=>{
+      if(res.status===201){
+        //navigate to login component
+        navigate('/login')
+      }
+    })
+    .catch(err=>console.log("err in user registration ",err))
+  }
+
   return (
     <div>
       <p className="display-2 text-center text-primary">Register</p>
-      <p className="lead">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima,
-        placeat alias eaque voluptas nesciunt porro consequuntur optio corrupti
-        facilis, dolorum iusto. Illum officia quidem labore eveniet. Quas
-        deleniti, deserunt rerum saepe quidem perferendis labore numquam
-        blanditiis repellat temporibus dicta atque nemo sequi nisi doloribus
-        beatae inventore sed optio eaque pariatur! Aspernatur, nemo. Quos sunt
-        aperiam error vero ex, quam est laboriosam quibusdam natus voluptatibus
-        fugiat necessitatibus qui quisquam expedita eligendi autem inventore
-        nostrum dolorum iure rerum omnis at doloribus esse iusto! Autem dolorem
-        aperiam, maxime temporibus dolorum fuga, explicabo quasi, accusantium
-        modi eveniet aliquid! Tempora architecto possimus assumenda consequatur
-        accusantium.
-      </p>
+      <form onSubmit={handleSubmit(createUser)}>
+       <input type="text" {...register('username')} className="form-control mb-3" placeholder='Username' />
+       <input type="password" {...register('password')} className="form-control mb-3" placeholder='Password' />
+       <input type="date" {...register('dob')} className="form-control mb-3"  />
+       <input type="email" {...register('email')} className="form-control mb-3"  placeholder='Email' />
+       <button type="submit" className="btn btn-success">Regsiter</button>
+      </form>
+
+
     </div>
   )
 }

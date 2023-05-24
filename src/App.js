@@ -9,6 +9,7 @@ import Technologies from './components/technologies/Technologies';
 import Java from './components/java/Java';
 import Nodejs from './components/nodejs/Nodejs';
 import Vue from './components/vue/Vue'
+import UserProfile from "./components/user-profile/UserProfile";
 
 //create a  component
 function App() {
@@ -30,6 +31,10 @@ function App() {
         {
           path:'login',
           element:<Login />
+        },
+        {
+          path:'user-profile',
+          element:<UserProfile />
         },
         {
           path:'technologies',

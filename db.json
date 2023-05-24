@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "username": "kiran",
+      "password": "kiran",
+      "dob": "2023-05-24",
+      "email": "kiran@gmail.com",
+      "id": 1
+    },
+    {
+      "username": "ravi",
+      "password": "ravi",
+      "dob": "2023-05-19",
+      "email": "ravi@gmail.com",
+      "id": 2
+    },
+    {
+      "username": "manasa",
+      "password": "manasa",
+      "dob": "2023-05-05",
+      "email": "manasa@mail.com",
+      "id": 3
+    },
+    {
+      "username": "bhanu",
+      "password": "bhanu",
+      "dob": "2023-05-26",
+      "email": "bhanu@gmail.com",
+      "id": 4
+    }
+  ]
+}
